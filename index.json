@@ -79,6 +79,26 @@
       "slots": ""
     },
     {
+      "id": "KingsEcho",
+      "name": "King's Echo",
+      "desc": "Bolt of Authority for Residual Energy, Liberation Mace for Censure, CORVAK! to spend stacks and refill mana, King's Shield when hurt.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "caster",
+        "tank",
+        "solo",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 2277,
+      "sha256": "1b60977b6d0d79dfa96dd3a2651dd33f0ce7325aec273990d8ccc30a60327d70",
+      "path": "classes/KingsEcho.js",
+      "class": "King's Echo",
+      "role": "Offensive Caster",
+      "slots": ""
+    },
+    {
       "id": "LegionRevenant",
       "name": "Legion Revenant",
       "desc": "Depraved Empowerment for Depravity, Anathema nuke, Wicked Purgatory for Seared, Atramentous Shade for Decay, Malevolent Burst filler for mana.",
