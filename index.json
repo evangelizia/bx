@@ -59,6 +59,25 @@
       "timeout": 0
     },
     {
+      "id": "kotapon-ii",
+      "name": "KotaPon II: Get'cha Gear",
+      "desc": "Farm quest 8802 in Eden for one random KotaPon reward per turn-in.",
+      "author": "beatrix",
+      "tags": [
+        "farm",
+        "quests",
+        "kotapon",
+        "eden",
+        "gachapon"
+      ],
+      "version": "1.0",
+      "size": 2732,
+      "sha256": "f4c42e9db6a1bd16d89f9612be744272d071ddf3ac6a36332ccada8170df3f80",
+      "path": "bots/kotapon-ii.js",
+      "mode": "loop",
+      "timeout": 0
+    },
+    {
       "id": "shadowbattleon-exp",
       "name": "Shadow Battleon EXP",
       "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
@@ -94,6 +113,25 @@
       "path": "classes/ArchPaladin.js",
       "class": "ArchPaladin",
       "role": "Support Bruiser",
+      "slots": ""
+    },
+    {
+      "id": "ChronoAssassin",
+      "name": "Chrono Assassin",
+      "desc": "Relapse for Deadlock and Reverse Time, Shift for Push Time, Convert for Condense Time, Hysteria in Reverse for Corrupt.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "dodge",
+        "melee",
+        "solo"
+      ],
+      "version": "1.0",
+      "size": 3585,
+      "sha256": "035981461fd35c24efdde4dd502dd7e4b5c6083629042b08433a765fa5e772d8",
+      "path": "classes/ChronoAssassin.js",
+      "class": "Chrono Assassin",
+      "role": "Dodge Melee",
       "slots": ""
     },
     {
@@ -218,6 +256,26 @@
       "path": "classes/StoneCrusher.js",
       "class": "StoneCrusher",
       "role": "Defensive Caster",
+      "slots": ""
+    },
+    {
+      "id": "YamiNoRonin",
+      "name": "Yami no Ronin",
+      "desc": "Yami no Maku DoT, Tachi for Ichi Ni San, Jigen Kogeki timed to the DoT, Kettou to heal and build Flash.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "dodge",
+        "melee",
+        "solo",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 2454,
+      "sha256": "d19020785c92e8368bb44da743741237de3b16d7017cd4f1fddf0b6c1b85a52a",
+      "path": "classes/YamiNoRonin.js",
+      "class": "Yami no Ronin",
+      "role": "Dodge Melee",
       "slots": ""
     }
   ]
