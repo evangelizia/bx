@@ -21,6 +21,24 @@
       "timeout": 90
     },
     {
+      "id": "gold-farm",
+      "name": "Gold Farm",
+      "desc": "Honor Hall for members, Battle Ground E for F2P, Berserker Bunny below 61.",
+      "author": "beatrix",
+      "tags": [
+        "gold",
+        "battle ground e",
+        "honor hall",
+        "berserker bunny"
+      ],
+      "version": "1.0",
+      "size": 2900,
+      "sha256": "570f776809200b28905be480522cb2316ee7255f124522d10b64460f7742ba96",
+      "path": "bots/gold-farm.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "kings-echo",
       "name": "King's Echo",
       "desc": "Unlocks King's Echo: Alteon's Reforged Armor, Crown, Royal Dragon Sword and Mace via Echo of the King quests, then buys the class.",
