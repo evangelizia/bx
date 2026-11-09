@@ -21,6 +21,26 @@
       "timeout": 90
     },
     {
+      "id": "kings-echo",
+      "name": "King's Echo",
+      "desc": "Unlocks King's Echo: Alteon's Reforged Armor, Crown, Royal Dragon Sword and Mace via Echo of the King quests, then buys the class.",
+      "author": "beatrix",
+      "tags": [
+        "king's echo",
+        "echo",
+        "class",
+        "terminatemple",
+        "unlock",
+        "alteon"
+      ],
+      "version": "1.0",
+      "size": 7927,
+      "sha256": "849f93134471bc75eb338c8bc509e812bb2308001b029b8aa2efc40e7c2aca81",
+      "path": "bots/kings-echo.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "shadowbattleon-exp",
       "name": "Shadow Battleon EXP",
       "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
