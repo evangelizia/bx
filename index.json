@@ -23,6 +23,27 @@
       "timeout": 0
     },
     {
+      "id": "burning-blade-of-abezeth",
+      "name": "Burning Blade Of Abezeth",
+      "desc": "Runs the thirty Celestial Arena fights in order, then merges the Burning Blade Of Abezeth from Champion Sashes and Gold Vouchers.",
+      "author": "beatrix",
+      "tags": [
+        "burning blade",
+        "abezeth",
+        "celestial arena",
+        "champion sash",
+        "merge",
+        "quests",
+        "sword"
+      ],
+      "version": "1.0",
+      "size": 5881,
+      "sha256": "f4cd22c57ff012fbcf1c641f9d8c9cd68affd48186162ae79738356d9fa48e9d",
+      "path": "bots/burning-blade-of-abezeth.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "chaos-7-tibicenas",
       "name": "13 Lords of Chaos: Tibicenas",
       "desc": "The seventh Lord of Chaos, the Sandsea up to Tibicenas.",
