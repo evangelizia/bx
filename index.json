@@ -1,0 +1,166 @@
+{
+  "spec": 1,
+  "repo": "evangelizia/bx",
+  "bots": [
+    {
+      "id": "chaos-7-tibicenas",
+      "name": "13 Lords of Chaos: Tibicenas",
+      "desc": "The seventh Lord of Chaos, the Sandsea up to Tibicenas.",
+      "author": "",
+      "tags": [
+        "chaos",
+        "lord of chaos",
+        "sandsea",
+        "tibicenas"
+      ],
+      "version": "1",
+      "size": 4300,
+      "sha256": "143df6051afdb3963b3aacba0d6c829aabcf547674b6ee22583764fd609e48de",
+      "path": "bots/chaos-7-tibicenas.js",
+      "mode": "once",
+      "timeout": 90
+    },
+    {
+      "id": "shadowbattleon-exp",
+      "name": "Shadow Battleon EXP",
+      "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
+      "author": "beatrix",
+      "tags": [
+        "farm",
+        "exp",
+        "quests",
+        "shadowbattleon"
+      ],
+      "version": "1.0",
+      "size": 1472,
+      "sha256": "3a0a2312802c077f42f6095f921ff3ebc178a47a23e40f373a50423b964a6acf",
+      "path": "bots/shadowbattleon-exp.js",
+      "mode": "loop",
+      "timeout": 0
+    }
+  ],
+  "classes": [
+    {
+      "id": "ArchPaladin",
+      "name": "ArchPaladin",
+      "desc": "Hymn when hurt, Seal into Eden, Commandment to hold the stacks.",
+      "author": "beatrix",
+      "tags": [
+        "support",
+        "healer",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 1076,
+      "sha256": "2b15f98ac69029ce17b28b5478b8c135c8c8532780304ec0f826509bc246f517",
+      "path": "classes/ArchPaladin.js",
+      "class": "ArchPaladin",
+      "role": "Support Bruiser",
+      "slots": ""
+    },
+    {
+      "id": "Dragonslayer",
+      "name": "Dragonslayer",
+      "desc": "Dragon's Bane to enable Cindered Scales, Infected Wound and Incapacitated, then Incapacitate, Impale, Scorched Steel for Charred and mana.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "dragon",
+        "tank",
+        "melee",
+        "solo"
+      ],
+      "version": "1.0",
+      "size": 3176,
+      "sha256": "9bbf554a60a842cb55d66d124dd7df6f6e0eeca682dd510c4e483677f2b54e45",
+      "path": "classes/Dragonslayer.js",
+      "class": "Dragonslayer",
+      "role": "Tank Melee",
+      "slots": ""
+    },
+    {
+      "id": "LegionRevenant",
+      "name": "Legion Revenant",
+      "desc": "Depraved Empowerment for Depravity, Anathema nuke, Wicked Purgatory for Seared, Atramentous Shade for Decay, Malevolent Burst filler for mana.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "caster",
+        "aoe",
+        "farm",
+        "solo",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 2579,
+      "sha256": "b694491376c43b5cbf52751c0a63d9f1fa85bac700f61a8686a3cf0bdd787397",
+      "path": "classes/LegionRevenant.js",
+      "class": "Legion Revenant",
+      "role": "Offensive Caster",
+      "slots": ""
+    },
+    {
+      "id": "LightCaster",
+      "name": "LightCaster",
+      "desc": "Lingering Light for In The Spotlight, Burned by Light for sun DoT, Light Blast for Blinded, Illuminate for heal and Illuminated.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "caster",
+        "healer",
+        "support",
+        "solo",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 2353,
+      "sha256": "bb45d5469ec934a515620df44fcb9dc82958292ebd441fa45e9fd6ebb7485d9c",
+      "path": "classes/LightCaster.js",
+      "class": "LightCaster",
+      "role": "Offensive Caster",
+      "slots": ""
+    },
+    {
+      "id": "MasterRanger",
+      "name": "Master Ranger",
+      "desc": "Mark For Death to Death Mark, Scorching Arrow DoT, Explosive Bolt consume, Vampiric Shot heal, Rapid Fire filler.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "bow",
+        "farm",
+        "solo",
+        "ranger",
+        "aoe"
+      ],
+      "version": "1.0",
+      "size": 2030,
+      "sha256": "6bdf91baf71ac8f26bfad3a88b5b0aadf366086221fefa8bc4fca54a11ac1a00",
+      "path": "classes/MasterRanger.js",
+      "class": "Master Ranger",
+      "role": "Dodge Bow",
+      "slots": ""
+    },
+    {
+      "id": "StoneCrusher",
+      "name": "StoneCrusher",
+      "desc": "Echoing Earth for haste, crit and mana, Endless Fissure for Aftershock, Stalagmite for Bruised, Land's Embrace to heal and shield.",
+      "author": "beatrix",
+      "tags": [
+        "support",
+        "healer",
+        "caster",
+        "tank",
+        "solo",
+        "endgame"
+      ],
+      "version": "1.0",
+      "size": 2357,
+      "sha256": "fc6560bb1d6d6d30beddae29f503420320d9caab2163af922fb26313bb404324",
+      "path": "classes/StoneCrusher.js",
+      "class": "StoneCrusher",
+      "role": "Defensive Caster",
+      "slots": ""
+    }
+  ]
+}
