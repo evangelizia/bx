@@ -3,6 +3,26 @@
   "repo": "evangelizia/bx",
   "bots": [
     {
+      "id": "blade-of-awe",
+      "name": "Blade of Awe",
+      "desc": "Runs the five Awe quests in order, farms Blade of Awe reputation to rank 6, then buys the Blade of Awe.",
+      "author": "beatrix",
+      "tags": [
+        "blade",
+        "awe",
+        "sword",
+        "reputation",
+        "quests",
+        "escherion"
+      ],
+      "version": "1.0",
+      "size": 3991,
+      "sha256": "e99eaa6a2a0c08c7ee6fde3407d3c0eb6c49f9c37345357c7629283a35d94582",
+      "path": "bots/blade-of-awe.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "chaos-7-tibicenas",
       "name": "13 Lords of Chaos: Tibicenas",
       "desc": "The seventh Lord of Chaos, the Sandsea up to Tibicenas.",
