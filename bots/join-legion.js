@@ -88,31 +88,21 @@ function brawl() {
     var mem = bot.memory;
     var run = mem.brawl;
     if (run == null) {
-        run = mem.brawl = { step: 0, settled: false, restart: false };
-    }
-
-    // Death sends the player to the entrance, which invalidates the route.
-    // Leave and join a fresh room instead of guessing where the body is.
-    if (bot.dead) {
-        bot.stopCombat();
-        run.step = 0;
-        run.settled = false;
-        run.restart = true;
-        return false;
-    }
-    if (run.restart) {
-        if (!bot.travel(HOME)) return false;
-        run.restart = false;
-        return false;
+        run = mem.brawl = { step: 0, settled: false };
     }
 
     if (!bot.travel(BRAWL, "Enter0", "Spawn")) return false;
 
-    // A stopped bot keeps its memory. Landing at the entrance means the run
-    // has to start from the first room instead of resuming mid-route.
-    if (bot.cell === "Enter0" && run.step > 0 && run.step < ROUTE.length) {
+    // The entrance is where a fresh join and a respawn both land. Once the
+    // route has started, seeing it again means the run was cut short, so walk
+    // from the first brawler instead of skipping ahead. Never leave the room
+    // for this: the client's own death state is not reliable on map load, and
+    // reacting to it by joining another map turns the farm into a ping-pong.
+    if (run.step > 0 && bot.cell === "Enter0") {
+        bot.stopCombat();
         run.step = 0;
         run.settled = false;
+        return false;
     }
 
     if (run.step < ROUTE.length) {

@@ -95,8 +95,8 @@
         "join"
       ],
       "version": "1.0",
-      "size": 8867,
-      "sha256": "ffbe89bbcc3e9a70198ee5509ea9dee161e4ee537e697432b8d92521906b6057",
+      "size": 8685,
+      "sha256": "ac0065d2a6e5c1a8f8e12c4859fe957ff02dcc6d7bacb3f0e8243871153633c8",
       "path": "bots/join-legion.js",
       "mode": "once",
       "timeout": 0
