@@ -20,8 +20,8 @@
 // falls back to the screen the chain value names until that answer arrives.
 //
 // The merge costs Champion Sash x20 and Gold Voucher 500k x3. Champion Sash is
-// a guaranteed Aranx drop that stacks to 20, so twenty kills always cover the
-// price and no item id is needed. Each voucher costs 500k gold from the Gebo
+// a guaranteed Aranx drop that stacks to 20, and the count in the bag is what
+// decides when the killing stops. Each voucher costs 500k gold from the Gebo
 // Shop; the bot buys only the shortfall.
 
 var CHAIN = 249;
@@ -77,7 +77,7 @@ var LEGS = []
 var SASH_MAP = "celestialarenad";
 var SASH_MONSTER = "Aranx";
 var SASH_DROP = "Champion Sash";
-var SASH_KILLS = 20;
+var SASH_NEED = 20;
 
 var VOUCHER = 61043;
 var VOUCHER_MAP = "alchemyacademy";
@@ -118,21 +118,23 @@ function step(leg) {
 
 function farmSash() {
     if (!bot.travel(SASH_MAP)) return false;
-    // Drain the drop from the previous kill before deciding to kill again,
-    // including the twentieth drop after the last kill.
-    if (!bot.pickDrop(SASH_DROP)) return false;
 
-    var kills = bot.memory.sash || 0;
-    if (kills >= SASH_KILLS) return true;
+    // The bag is the only count that decides this: a player who arrives with
+    // sashes in hand has nothing left to farm.
+    var have = bot.item(SASH_DROP);
+    if (have == null) return false;
+    if (have >= SASH_NEED) return true;
+
+    // The sash waits on the floor until it is taken, so drain it before the
+    // next kill and let the count catch up on the following tick.
+    if (bot.pickDrop(SASH_DROP)) return false;
 
     var m = bot.roomMonster(SASH_MONSTER);
     if (m == null) return false;
     if (m.cell && !bot.moveToCell(m.cell, m.pad)) return false;
     if (!bot.kill(SASH_MONSTER, 1)) return false;
 
-    kills++;
-    bot.memory.sash = kills;
-    bot.log("burning-blade: " + SASH_DROP + " " + kills + "/" + SASH_KILLS);
+    bot.log("burning-blade: " + SASH_DROP + " " + have + "/" + SASH_NEED);
     return false;
 }
 

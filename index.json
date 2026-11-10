@@ -37,8 +37,8 @@
         "sword"
       ],
       "version": "1.0",
-      "size": 5881,
-      "sha256": "f4cd22c57ff012fbcf1c641f9d8c9cd68affd48186162ae79738356d9fa48e9d",
+      "size": 6005,
+      "sha256": "a51dcea16ad13bac73e7723f494db76a8c19913a7c767d5e66a7d7fe18a9f3f6",
       "path": "bots/burning-blade-of-abezeth.js",
       "mode": "once",
       "timeout": 0
