@@ -141,6 +141,26 @@
       "timeout": 0
     },
     {
+      "id": "legion-token-dreadrock",
+      "name": "Legion Token: Dreadrock",
+      "desc": "Farms Legion Tokens from the Undead Champion Recruitment quest in Dreadrock.",
+      "author": "beatrix",
+      "tags": [
+        "legion",
+        "legion token",
+        "dreadrock",
+        "undead champion",
+        "farm",
+        "quests"
+      ],
+      "version": "1.0",
+      "size": 3234,
+      "sha256": "98760d426d1ea9af06f7053f9c6b2e10a2462fa6d7d69a14eafd387dd4c529ab",
+      "path": "bots/legion-token-dreadrock.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "shadowbattleon-exp",
       "name": "Shadow Battleon EXP",
       "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
