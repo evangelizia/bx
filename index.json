@@ -80,6 +80,28 @@
       "timeout": 0
     },
     {
+      "id": "join-legion",
+      "name": "Join the Legion",
+      "desc": "Farms 200 Combat Trophies, buys the Undead Warrior, runs quests 789-793, buys the Undead Champion and refunds the Warrior.",
+      "author": "beatrix",
+      "tags": [
+        "legion",
+        "dage",
+        "undead warrior",
+        "undead champion",
+        "bludrutbrawl",
+        "combat trophy",
+        "quests",
+        "join"
+      ],
+      "version": "1.0",
+      "size": 8867,
+      "sha256": "ffbe89bbcc3e9a70198ee5509ea9dee161e4ee537e697432b8d92521906b6057",
+      "path": "bots/join-legion.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "kings-echo",
       "name": "King's Echo",
       "desc": "Unlocks King's Echo: Alteon's Reforged Armor, Crown, Royal Dragon Sword and Mace via Echo of the King quests, then buys the class.",
