@@ -143,7 +143,7 @@
     {
       "id": "legion-token-dreadrock",
       "name": "Legion Token: Dreadrock",
-      "desc": "Farms Legion Tokens from the Undead Champion Recruitment quest in Dreadrock.",
+      "desc": "Farms Legion Tokens with the Undead Champion Recruitment quest in Dreadrock, until stopped.",
       "author": "beatrix",
       "tags": [
         "legion",
@@ -154,10 +154,10 @@
         "quests"
       ],
       "version": "1.0",
-      "size": 3234,
-      "sha256": "98760d426d1ea9af06f7053f9c6b2e10a2462fa6d7d69a14eafd387dd4c529ab",
+      "size": 3898,
+      "sha256": "a5b2102ca41086e95965d511f0c125ac3b0b1c1abf08198d959822dc4875bb1d",
       "path": "bots/legion-token-dreadrock.js",
-      "mode": "once",
+      "mode": "loop",
       "timeout": 0
     },
     {
