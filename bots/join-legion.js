@@ -16,9 +16,10 @@
 //
 // The brawl is a PvP map. The client refuses an ordinary cell walk there, so
 // the room is crossed by walking to its edge and asking the server for the
-// cell's event id. One run clears the three brawlers and the captain, then
-// leaves to battleon and joins a fresh room. A death drops the player back at
-// the entrance, so the run starts over from there.
+// cell's event id. One run clears the three brawlers and the captain, waits
+// for the trophies to land and be picked up, then leaves to battleon and
+// joins a fresh room. A death drops the player back at the entrance, so the
+// run starts over from there.
 //
 // Quest 792 hands in the 200 trophies, so they have to be in the bag before
 // the chain reaches it. Quest 791's Ravaged Champion Soul is not temporary and
@@ -42,6 +43,14 @@ var UNDERWORLD = "underworld";
 
 var BRAWL = "bludrutbrawl-999999";
 var HOME = "battleon";
+
+// A cleared room still pays out: the trophies land on the floor a moment
+// after each kill and the bag only moves once the pickup is accepted. These
+// are tick counts, so the bag has to sit still for a few seconds before the
+// room is called done.
+var BRAWL_WAIT = 250;
+var BRAWL_SETTLE = 40;
+var BRAWL_QUIET = 20;
 
 // mtcid, destination cell, and the point to stand on before asking for it.
 // The points are the middles of the walk ranges CoreFarms uses.
@@ -88,7 +97,7 @@ function brawl() {
     var mem = bot.memory;
     var run = mem.brawl;
     if (run == null) {
-        run = mem.brawl = { step: 0, settled: false };
+        run = mem.brawl = { step: 0, before: null, seen: 0, stable: 0, quiet: 0, waited: 0 };
     }
 
     if (!bot.travel(BRAWL, "Enter0", "Spawn")) return false;
@@ -101,8 +110,20 @@ function brawl() {
     if (run.step > 0 && bot.cell === "Enter0") {
         bot.stopCombat();
         run.step = 0;
-        run.settled = false;
+        run.before = null;
+        run.waited = 0;
+        run.stable = 0;
+        run.quiet = 0;
         return false;
+    }
+
+    // The bag count at the start of the room is the only honest baseline for
+    // "did this run pay out". `pickDrop` answers true when there is nothing
+    // left to pick, which is also true before the first trophy has landed.
+    if (run.before == null) {
+        run.before = bot.item(TROPHY);
+        if (run.before == null) return false;
+        run.seen = run.before;
     }
 
     if (run.step < ROUTE.length) {
@@ -113,15 +134,40 @@ function brawl() {
         return false;
     }
 
-    // The room is clear. Take the trophies before the map can drop them.
-    if (!bot.pickDrop(TROPHY_NAME)) return false;
-    if (!run.settled) {
-        run.settled = true;
+    // The room is clear. Keep picking until the trophies stop arriving, then
+    // leave. The reference does the same: it waits for the drop, the pickup,
+    // and then the server's own inventory update before it counts the run.
+    run.waited++;
+    var have = bot.item(TROPHY);
+    if (have == null) return false;
+    if (have > run.before) {
+        if (have !== run.seen) {
+            run.seen = have;
+            run.stable = 0;
+        } else {
+            run.stable++;
+        }
+        if (bot.pickDrop(TROPHY_NAME)) {
+            run.quiet++;
+        } else {
+            run.quiet = 0;
+        }
+        if (run.stable >= BRAWL_SETTLE && run.quiet >= BRAWL_QUIET) {
+            if (!bot.travel(HOME)) return false;
+            mem.brawl = null;
+            return true;
+        }
         return false;
     }
-    if (!bot.travel(HOME)) return false;
-    mem.brawl = null;
-    return true;
+
+    if (run.waited > BRAWL_WAIT) {
+        bot.log("join-legion: the room cleared without a Combat Trophy, joining a new one");
+        if (!bot.travel(HOME)) return false;
+        mem.brawl = null;
+        return false;
+    }
+    bot.pickDrop(TROPHY_NAME);
+    return false;
 }
 
 function quest789() {
