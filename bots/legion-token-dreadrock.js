@@ -2,7 +2,7 @@
 /// desc: Farms Legion Tokens with the Undead Champion Recruitment quest in Dreadrock, until stopped.
 /// once: false
 /// timeout: 0
-/// version: 1.0
+/// version: 1.1
 /// author: beatrix
 /// tags: legion, legion token, dreadrock, undead champion, farm, quests
 
@@ -16,8 +16,8 @@
 // accept, kill six, hand in, accept again.
 //
 // The farm has no end: there is no goal to reach, the bot keeps handing the
-// quest in until it is stopped. Each pass is one cycle, and the host starts
-// the next one.
+// quest in until it is stopped. The pass never finishes, so the bot steps one
+// kill at a time and the recruit count is the only progress that matters.
 //
 // Beatrix has no class swap, so the farm class is left to the player. The
 // Undead Champion is the quest's accept item. The reference buys it when it
@@ -32,6 +32,12 @@ var CHAMPION = 5518; // Undead Champion armor, accept item of 4849.
 var MAP = "dreadrock";
 var CELL = "r3";
 var PAD = "Bottom";
+
+// Consecutive kills that do not move the recruit count. A temp quest drop is
+// given on every kill, so ten silent kills mean this is not the room that
+// pays, and the farm would otherwise fight here forever.
+var STALE_KILLS = 10;
+var STALL_TICKS = 100;
 
 var mem = bot.memory;
 
@@ -51,12 +57,14 @@ if (champion < 1) {
     return;
 }
 
-// A finished quest is handed in first: the turn-in is what pays. The pass
-// keeps running until the server has taken the quest, so the hand-in is
-// never asked for twice.
+// A finished quest is handed in first: the turn-in is what pays. The step
+// answers true only once the client has stopped offering it, so the hand-in
+// is never asked for twice.
 if (bot.quest.ready(QUEST)) {
     if (!bot.quest.turnIn(QUEST)) return;
-    mem.dreadrock = null;
+    mem.recruits = null;
+    mem.killed = false;
+    mem.stale = 0;
     mem.stalled = 0;
     return;
 }
@@ -81,13 +89,12 @@ if (need === 0) {
     return;
 }
 
-var short = need - have;
-if (short <= 0) {
+if (have >= need) {
     // The recruits are in and the client has not offered the hand-in yet.
     // That settles within a tick or two; a longer silence means the quest
     // will never complete, and the farm would sit here doing nothing.
     mem.stalled = (mem.stalled || 0) + 1;
-    if (mem.stalled > 100) {
+    if (mem.stalled > STALL_TICKS) {
         bot.fail("quest 4849 has its recruits but will not hand in");
         return;
     }
@@ -95,24 +102,31 @@ if (short <= 0) {
 }
 mem.stalled = 0;
 
-// The recruit count is the only truth about the room. Two kill cycles that
-// do not move it mean this is not the room that recruits, and the farm would
-// kill monsters forever without ever paying out.
-var stale = mem.dreadrock != null && mem.dreadrock.have === have && mem.dreadrock.short === short;
-mem.dreadrock = {
-    have: have,
-    short: short,
-    stale: stale ? mem.dreadrock.stale + 1 : 0
-};
-if (mem.dreadrock.stale >= 2) {
-    bot.fail("dreadrock " + CELL + " is not giving Dreadrock recruits");
+if (!bot.travel(MAP)) return;
+if (!bot.moveToCell(CELL, PAD)) return;
+
+// One kill at a time keeps the count observable between kills: a kill that
+// lands and leaves the recruits where they were is the signal that this room
+// does not pay. The pass stays open so the steps keep their place.
+var progressed = mem.recruits !== have;
+mem.recruits = have;
+if (progressed) {
+    mem.stale = 0;
+}
+if (mem.killed) {
+    mem.killed = false;
+    if (progressed) {
+        bot.log("legion-token-dreadrock: " + have + "/" + need + " recruits");
+    } else {
+        mem.stale = (mem.stale || 0) + 1;
+    }
+}
+if (mem.stale >= STALE_KILLS) {
+    bot.fail(
+        "dreadrock " + CELL + " killed " + STALE_KILLS + " monsters without a Dreadrock recruit"
+    );
     return;
 }
 
-if (!bot.travel(MAP)) return;
-if (!bot.moveToCell(CELL, PAD)) return;
-if (!bot.kill("", short)) return;
-if (!bot.pickDrop("Legion Token")) return;
-
-// One cycle is one pass. The host starts the next one.
-return true;
+if (!bot.kill("", 1)) return;
+mem.killed = true;

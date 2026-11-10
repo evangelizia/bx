@@ -153,9 +153,9 @@
         "farm",
         "quests"
       ],
-      "version": "1.0",
-      "size": 3898,
-      "sha256": "a5b2102ca41086e95965d511f0c125ac3b0b1c1abf08198d959822dc4875bb1d",
+      "version": "1.1",
+      "size": 4320,
+      "sha256": "05e9d380d6b6091577fd74b6dea73882d2d386e64ff6f18398ccfe0c6397eafb",
       "path": "bots/legion-token-dreadrock.js",
       "mode": "loop",
       "timeout": 0
