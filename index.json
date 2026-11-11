@@ -493,16 +493,18 @@
     {
       "id": "ArchPaladin",
       "name": "ArchPaladin",
-      "desc": "Hymn when hurt, Seal into Eden, Commandment to hold the stacks.",
+      "desc": "Hymn when hurt, Righteous Seal for mitigation, Eden held until the seal fades for double damage, Commandment spammed for damage and stacks.",
       "author": "beatrix",
       "tags": [
         "support",
         "healer",
+        "tank",
+        "solo",
         "endgame"
       ],
-      "version": "1.0",
-      "size": 1076,
-      "sha256": "2b15f98ac69029ce17b28b5478b8c135c8c8532780304ec0f826509bc246f517",
+      "version": "1.1",
+      "size": 2131,
+      "sha256": "672b57c6174419e871fc1341a5ea5abed72f158ae5c7740b29a9e60aefec58d8",
       "path": "classes/ArchPaladin.js",
       "class": "ArchPaladin",
       "role": "Support Bruiser",
@@ -570,7 +572,7 @@
     {
       "id": "LegionRevenant",
       "name": "Legion Revenant",
-      "desc": "Depraved Empowerment for Depravity, Anathema nuke, Wicked Purgatory for Seared, Atramentous Shade for Decay, Malevolent Burst filler for mana.",
+      "desc": "Depraved Empowerment for Depravity, Wicked Purgatory and Atramentous Shade on cooldown for Infinita Nox, Anathema into the stacks, Malevolent Burst mana battery.",
       "author": "beatrix",
       "tags": [
         "dps",
@@ -580,9 +582,9 @@
         "solo",
         "endgame"
       ],
-      "version": "1.0",
-      "size": 2579,
-      "sha256": "b694491376c43b5cbf52751c0a63d9f1fa85bac700f61a8686a3cf0bdd787397",
+      "version": "1.1",
+      "size": 2662,
+      "sha256": "9f222361fc54049af35a43748f57b0c62e3a7708276c728ccedf526702b7ca6d",
       "path": "classes/LegionRevenant.js",
       "class": "Legion Revenant",
       "role": "Offensive Caster",
@@ -649,6 +651,26 @@
       "path": "classes/StoneCrusher.js",
       "class": "StoneCrusher",
       "role": "Defensive Caster",
+      "slots": ""
+    },
+    {
+      "id": "SwordMaster",
+      "name": "SwordMaster",
+      "desc": "Uke Negashi for permanent Evasion, Nukiuchi and Sever for guaranteed Vitals, Spinning Dragon and Precise Cut, Bladefury for crit, Nukitsuke filler.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "dodge",
+        "melee",
+        "solo",
+        "legion"
+      ],
+      "version": "1.0",
+      "size": 2272,
+      "sha256": "2b8aceaf30985233bedcf75b8978794b57f895fc076b36be582389998f59406a",
+      "path": "classes/SwordMaster.js",
+      "class": "SwordMaster",
+      "role": "Dodge Melee",
       "slots": ""
     },
     {
