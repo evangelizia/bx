@@ -487,6 +487,28 @@
       "path": "bots/shadowbattleon-exp.js",
       "mode": "loop",
       "timeout": 0
+    },
+    {
+      "id": "soulforge-hammer",
+      "name": "SoulForge Hammer",
+      "desc": "Unlocks the Soul Forge merge shop: quest 2741's three hammers from /forest, /battleundera and /bludrut.",
+      "author": "beatrix",
+      "tags": [
+        "legion",
+        "soulforge",
+        "hammer",
+        "underworld",
+        "dage",
+        "merge",
+        "unlock",
+        "quests"
+      ],
+      "version": "1.0",
+      "size": 3337,
+      "sha256": "b07fe1157adfc5663238f81e2a3f9b49a8b08641305535c396856d20a1d81162",
+      "path": "bots/soulforge-hammer.js",
+      "mode": "once",
+      "timeout": 0
     }
   ],
   "classes": [
