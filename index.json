@@ -449,6 +449,28 @@
       "timeout": 0
     },
     {
+      "id": "nulgath-larvae-roulette",
+      "name": "Nulgath's Roulette of Misfortune",
+      "desc": "Loops quest 2566 until stopped: Mana Energy from the Mana Golem, Charged Mana Energy from the Mana Falcon, then the hand-in.",
+      "author": "beatrix",
+      "tags": [
+        "nulgath",
+        "nation",
+        "larvae",
+        "roulette",
+        "misfortune",
+        "farm",
+        "quests",
+        "elemental"
+      ],
+      "version": "1.0",
+      "size": 2786,
+      "sha256": "f17e3af7a43fb0a8b9ed7b22c41a3ecd9a2ebefa7048f8e231f104fc80c3b30d",
+      "path": "bots/nulgath-larvae-roulette.js",
+      "mode": "loop",
+      "timeout": 0
+    },
+    {
       "id": "shadowbattleon-exp",
       "name": "Shadow Battleon EXP",
       "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
