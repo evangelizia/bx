@@ -84,6 +84,50 @@
       "timeout": 0
     },
     {
+      "id": "doom-vault-b",
+      "name": "Doom Vault B Story",
+      "desc": "Completes the /doomvaultb Grim Underdungeon, quests 2972 to 3004, ending with Undead Raxgore.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "doom vault b",
+        "doomvaultb",
+        "grim underdungeon",
+        "undead raxgore",
+        "grimskull",
+        "heroblade"
+      ],
+      "version": "1.0",
+      "size": 6366,
+      "sha256": "b5bd519e8d34048111617a2eb0dc62bf4633709b41c15ddeafc200ea5334ad0d",
+      "path": "bots/doom-vault-b.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
+      "id": "doom-vault",
+      "name": "Doom Vault Story",
+      "desc": "Completes the /doomvault gauntlet, quests 2952 to 3008, ending with the Ghost King Angler.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "doom vault",
+        "doomvault",
+        "grimskull",
+        "angler",
+        "raxgore",
+        "heroblade"
+      ],
+      "version": "1.0",
+      "size": 6541,
+      "sha256": "65531ec543af40071adc13c683c2e85ac87707fd01c3061de1c05de27e2f831a",
+      "path": "bots/doom-vault.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "forge-absolution",
       "name": "Forge Cape: Absolution",
       "desc": "Unlocks Absolution: the Good reputation gate, the Slimed Sigils and the two rift shop items.",
