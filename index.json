@@ -493,6 +493,28 @@
       "timeout": 0
     },
     {
+      "id": "shadow-fortress",
+      "name": "Shadow Fortress Story",
+      "desc": "Completes the /shadowfortress chapter of the Yokai saga, quests 6485 to 6494, ending with Jaaku.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "yokai",
+        "shadow fortress",
+        "shadowfortress",
+        "orochi",
+        "jaaku",
+        "yami no ronin"
+      ],
+      "version": "1.0",
+      "size": 5454,
+      "sha256": "abb7ff44044d7ebff1ebbf5e0aad88d3a929f741202f723bda647a15931db01d",
+      "path": "bots/shadow-fortress.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "shadowbattleon-exp",
       "name": "Shadow Battleon EXP",
       "desc": "Keeps Shadow Hunt 9421 and 9422 active, hands in what is ready, farms Doomed Troll otherwise.",
