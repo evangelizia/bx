@@ -703,6 +703,26 @@
       "slots": ""
     },
     {
+      "id": "ClassicNinja",
+      "name": "Classic Ninja",
+      "desc": "Maintains Thin Air, uses Shadowblade to suppress enemy accuracy, then Shadowburns for a stun.",
+      "author": "beatrix",
+      "tags": [
+        "ninja",
+        "classic",
+        "dodge",
+        "hybrid",
+        "solo"
+      ],
+      "version": "1.0",
+      "size": 1159,
+      "sha256": "7e2cc99ba5f32ae85f086a5264a6dd85682bd5c2d2a36faaa5d706764eae25c8",
+      "path": "classes/ClassicNinja.js",
+      "class": "Classic Ninja",
+      "role": "Full Hybrid",
+      "slots": ""
+    },
+    {
       "id": "Dragonslayer",
       "name": "Dragonslayer",
       "desc": "Dragon's Bane to enable Cindered Scales, Infected Wound and Incapacitated, then Incapacitate, Impale, Scorched Steel for Charred and mana.",
@@ -863,6 +883,26 @@
       "path": "classes/Ninja.js",
       "class": "Ninja",
       "role": "Dodge Melee",
+      "slots": ""
+    },
+    {
+      "id": "Oracle",
+      "name": "Oracle",
+      "desc": "Uses Group Divination to heal, Foresight to empower auto attacks, and Edited Timeline to cripple the target.",
+      "author": "beatrix",
+      "tags": [
+        "oracle",
+        "healer",
+        "caster",
+        "support",
+        "solo"
+      ],
+      "version": "1.0",
+      "size": 1343,
+      "sha256": "f349bbbb7c5e965129b0c4ad4d49853b971f789340d18edd5ee67ea86d111bd0",
+      "path": "classes/Oracle.js",
+      "class": "Oracle",
+      "role": "Power Caster",
       "slots": ""
     },
     {
