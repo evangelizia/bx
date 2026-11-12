@@ -723,6 +723,26 @@
       "slots": ""
     },
     {
+      "id": "Healer",
+      "name": "Healer",
+      "desc": "Heals when hurt, keeps Energy Flow active, and uses Holy and Heartbeat for damage.",
+      "author": "beatrix",
+      "tags": [
+        "healer",
+        "support",
+        "caster",
+        "solo",
+        "base class"
+      ],
+      "version": "1.0",
+      "size": 921,
+      "sha256": "1782ac604f1314ec31ea70486b0e979d33201af8dbf854ea1c9c634ae037cb58",
+      "path": "classes/Healer.js",
+      "class": "Healer",
+      "role": "Defensive Caster",
+      "slots": ""
+    },
+    {
       "id": "KingsEcho",
       "name": "King's Echo",
       "desc": "Bolt of Authority for Residual Energy, Liberation Mace for Censure, CORVAK! to spend stacks and refill mana, King's Shield when hurt.",
@@ -785,6 +805,26 @@
       "slots": ""
     },
     {
+      "id": "Mage",
+      "name": "Mage",
+      "desc": "Maintains Scorched and Frozen Blood, detonates Scorched with Explosion, and uses Arcane Shield when needed.",
+      "author": "beatrix",
+      "tags": [
+        "caster",
+        "mage",
+        "farm",
+        "solo",
+        "base class"
+      ],
+      "version": "1.0",
+      "size": 1185,
+      "sha256": "e1f7357aaa9b7547565740f932f49f19909c8a3fcd3bca2e4f550a935d869a27",
+      "path": "classes/Mage.js",
+      "class": "Mage",
+      "role": "Caster",
+      "slots": ""
+    },
+    {
       "id": "MasterRanger",
       "name": "Master Ranger",
       "desc": "Mark For Death to Death Mark, Scorching Arrow DoT, Explosive Bolt consume, Vampiric Shot heal, Rapid Fire filler.",
@@ -803,6 +843,47 @@
       "path": "classes/MasterRanger.js",
       "class": "Master Ranger",
       "role": "Dodge Bow",
+      "slots": ""
+    },
+    {
+      "id": "Ninja",
+      "name": "Ninja",
+      "desc": "Maintains Thin Air, stacks Rapid Bleed with Shuriken, and uses Shadowblade and Smoke Bomb for damage and debuffs.",
+      "author": "beatrix",
+      "tags": [
+        "ninja",
+        "dodge",
+        "melee",
+        "solo",
+        "base class"
+      ],
+      "version": "1.0",
+      "size": 1224,
+      "sha256": "d52832da4676286dcb2bafe25d5335ab15cbe222d814e906300d3fca7bde2c5a",
+      "path": "classes/Ninja.js",
+      "class": "Ninja",
+      "role": "Dodge Melee",
+      "slots": ""
+    },
+    {
+      "id": "Rogue",
+      "name": "Rogue",
+      "desc": "Maintains Footwork and Viper's Kiss, then spends the poison near expiry with Opportunity's Strike.",
+      "author": "beatrix",
+      "tags": [
+        "rogue",
+        "thief",
+        "dodge",
+        "melee",
+        "solo",
+        "base class"
+      ],
+      "version": "1.0",
+      "size": 1348,
+      "sha256": "d14d07549dbed684497da9753b3b4840a62567f28640462c0c0564a0e56ce88d",
+      "path": "classes/Rogue.js",
+      "class": "Rogue",
+      "role": "Dodge Melee",
       "slots": ""
     },
     {
@@ -844,6 +925,26 @@
       "path": "classes/SwordMaster.js",
       "class": "SwordMaster",
       "role": "Dodge Melee",
+      "slots": ""
+    },
+    {
+      "id": "Warrior",
+      "name": "Warrior",
+      "desc": "Uses On Guard for defense, Prepared Strike for guaranteed critical attacks, and cycles the Warrior strikes.",
+      "author": "beatrix",
+      "tags": [
+        "warrior",
+        "tank",
+        "melee",
+        "solo",
+        "base class"
+      ],
+      "version": "1.0",
+      "size": 1339,
+      "sha256": "6dd13a440f4c1a16d2d76a34165568496c289110c6afe16cf51cd35c1c5db55a",
+      "path": "classes/Warrior.js",
+      "class": "Warrior",
+      "role": "Tank Melee",
       "slots": ""
     },
     {
