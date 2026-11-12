@@ -551,8 +551,8 @@
         "forest of chaos"
       ],
       "version": "1.1",
-      "size": 5061,
-      "sha256": "89deb17905de9ca74dce5544082468733fc1a4bd3db43c4c31125cdf8cf8a2a8",
+      "size": 5046,
+      "sha256": "4a70c4b918a3538bfc3a3ad5bac6b3959919eaa1a28e490d8137f9eba137eb7d",
       "path": "bots/prologue.js",
       "mode": "once",
       "timeout": 0
@@ -616,6 +616,24 @@
       "size": 3337,
       "sha256": "b07fe1157adfc5663238f81e2a3f9b49a8b08641305535c396856d20a1d81162",
       "path": "bots/soulforge-hammer.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
+      "id": "tutorial",
+      "name": "Tutorial Achievements",
+      "desc": "Awards the ten tutorial achievements from /oaklore, matching the reference Tutorial Story bot.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "tutorial",
+        "achievements",
+        "oaklore"
+      ],
+      "version": "1.0",
+      "size": 1671,
+      "sha256": "cb0881a484f7fad31871d81671b0bf42dcf42df68f492749eb1cea6018142623",
+      "path": "bots/tutorial.js",
       "mode": "once",
       "timeout": 0
     },
