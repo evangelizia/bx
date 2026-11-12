@@ -2,7 +2,7 @@
 /// desc: Completes the Swordhaven Undead and Forest of Chaos prologue quests, 183 to 6219.
 /// once: true
 /// timeout: 0
-/// version: 1.0
+/// version: 1.1
 /// author: beatrix
 /// tags: story, quest, prologue, chaos saga, 13 lords of chaos, swordhaven, forest of chaos
 
@@ -11,9 +11,9 @@
 // Thirteen quests across the Swordhaven Undead, Shadowfall, Chaos Crypt,
 // Prison, and Forest of Chaos chapters. The first six write slot 20; the
 // Shadowfall bridge quest writes slot 43; the last four write slot 42. The
-// references' direct alignment packets and cutscene skips are not part of the
-// bot API, so quest 195 is handled through the normal quest accept/turn-in
-// flow in Shadowfall. The player's existing alignment is left untouched.
+// The Shadowfall cutscene transition uses the reference's two direct quest
+// packets. ALIGNMENT is 0 (Good); change it only if a different alignment is
+// intended for the character.
 //
 // Every requirement is temporary except the Unlife Insurance Bond bought for
 // 6216. Its five prison map-item clicks are sent before buying the bond.
@@ -34,6 +34,24 @@ var CHAIN = [
         42996: { monster: "Chaorrupted Bear" },
         42995: { monster: "Chaorrupted Wolf" } } }
 ];
+
+var ALIGNMENT = 0;
+
+function shadowfallTransition() {
+    if (bot.memory.transition >= 2) return bot.travel("shadowfall");
+    if (!bot.travel("castleundead", "King2", "Center")) return false;
+    if (!bot.memory.transition) {
+        if (!bot.sendPacket("%xt%zm%updateQuest%73922%43%1%")) return false;
+        bot.memory.transition = 1;
+        return false;
+    }
+    if (bot.memory.transition === 1) {
+        if (!bot.sendPacket("%xt%zm%updateQuest%188220%41%" + ALIGNMENT + "%")) return false;
+        bot.memory.transition = 2;
+        return false;
+    }
+    return false;
+}
 
 function report(step, wants) {
     bot.memory.beats = (bot.memory.beats || 0) + 1;
@@ -64,6 +82,7 @@ function fight(step, spot, short) {
 }
 
 function work(step) {
+    if (step.id === 195 && !shadowfallTransition()) return false;
     if (bot.quest.ready(step.id)) return bot.quest.turnIn(step.id);
     if (!bot.quest.active(step.id) && !bot.quest.accept(step.id)) return false;
 
