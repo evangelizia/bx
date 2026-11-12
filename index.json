@@ -515,6 +515,26 @@
       "timeout": 0
     },
     {
+      "id": "mazumi-ninja",
+      "name": "Mazumi Story and Ninja",
+      "desc": "Completes Mazumi's quests 90 to 92 and buys the Ninja class.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "mazumi",
+        "ninja",
+        "class",
+        "greenguard west"
+      ],
+      "version": "1.0",
+      "size": 3326,
+      "sha256": "06fc58e78079b89e1a12ec7db7bd42755d51304ac03ba38b8803fcc6c9c95821",
+      "path": "bots/mazumi-ninja.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "nulgath-larvae-roulette",
       "name": "Nulgath's Roulette of Misfortune",
       "desc": "Loops quest 2566 until stopped: Mana Energy from the Mana Golem, Charged Mana Energy from the Mana Falcon, then the hand-in.",
