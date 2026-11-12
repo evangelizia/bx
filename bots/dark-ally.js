@@ -2,7 +2,7 @@
 /// desc: Completes the /darkally chapter of Shadows of War, quests 7419 to 7428, ending with the Underfiend.
 /// once: true
 /// timeout: 0
-/// version: 1.0
+/// version: 1.1
 /// author: beatrix
 /// tags: story, quest, shadows of war, dark ally, darkally, underfiend, dage, yami no ronin
 
@@ -56,16 +56,26 @@ function gather(spot, want) {
     bot.mapItem(spot.item, want.need, want.id);
 }
 
-// One kill run, short of the count by whatever the last run paid.
+// One kill run, short of the count by whatever the last run paid. A cell in
+// the table is the reference's own; a monster with none is found through the
+// room watch, which reports the cell it stands in.
 function fight(spot, short) {
     if (!bot.travel(MAP)) return;
-    if (spot.cell) {
-        if (!bot.moveToCell(spot.cell, spot.pad)) return;
-    } else {
+    var cell = spot.cell;
+    var pad = spot.pad;
+    if (!cell) {
         var found = bot.roomMonster(spot.monster);
-        if (found === null) return;
-        if (!bot.moveToCell(found.cell, found.pad)) return;
+        if (found === null) {
+            if (bot.memory.lost !== spot.monster) {
+                bot.memory.lost = spot.monster;
+                bot.log("dark-ally: no " + spot.monster + " in this room");
+            }
+            return;
+        }
+        cell = found.cell;
+        pad = found.pad;
     }
+    if (!bot.moveToCell(cell, pad)) return;
     bot.kill(spot.monster, short);
 }
 
