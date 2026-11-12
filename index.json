@@ -537,6 +537,27 @@
       "timeout": 0
     },
     {
+      "id": "prologue",
+      "name": "Prologue Story",
+      "desc": "Completes the Swordhaven Undead and Forest of Chaos prologue quests, 183 to 6219.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "prologue",
+        "chaos saga",
+        "13 lords of chaos",
+        "swordhaven",
+        "forest of chaos"
+      ],
+      "version": "1.0",
+      "size": 4455,
+      "sha256": "fcd97eaddaefa171dee6e6653a5c370ff35b17c0a739de8cdc95165532fdf82e",
+      "path": "bots/prologue.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "shadow-fortress",
       "name": "Shadow Fortress Story",
       "desc": "Completes the /shadowfortress chapter of the Yokai saga, quests 6485 to 6494, ending with Jaaku.",
