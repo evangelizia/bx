@@ -11,7 +11,7 @@
 // Thirteen quests across the Swordhaven Undead, Shadowfall, Chaos Crypt,
 // Prison, and Forest of Chaos chapters. The first six write slot 20; the
 // Shadowfall bridge quest writes slot 43; the last four write slot 42. The
-// The Shadowfall cutscene transition uses the reference's two direct quest
+// cutscene transition uses the reference's two direct quest
 // packets. ALIGNMENT is 0 (Good); change it only if a different alignment is
 // intended for the character.
 //
