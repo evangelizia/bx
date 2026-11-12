@@ -507,9 +507,9 @@
         "jaaku",
         "yami no ronin"
       ],
-      "version": "1.1",
-      "size": 6352,
-      "sha256": "b64ff2c159152bbda6014ab6ea70cfecafff77676a6d2a132b9e1117327de519",
+      "version": "1.2",
+      "size": 7010,
+      "sha256": "6a698ca323c019e21a7c2091f25670732fdb5233256f4057aee9628436a89687",
       "path": "bots/shadow-fortress.js",
       "mode": "once",
       "timeout": 0

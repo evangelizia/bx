@@ -2,7 +2,7 @@
 /// desc: Completes the /shadowfortress chapter of the Yokai saga, quests 6485 to 6494, ending with Jaaku.
 /// once: true
 /// timeout: 0
-/// version: 1.1
+/// version: 1.2
 /// author: beatrix
 /// tags: story, quest, yokai, shadow fortress, shadowfortress, orochi, jaaku, yami no ronin
 
@@ -113,6 +113,22 @@ function fight(step, spot, short) {
     bot.kill(spot.monster, short);
 }
 
+// Say what a quest still wants every hundred ticks - ten seconds - so a step
+// that is not landing shows up in the log instead of clicking quietly forever.
+function report(step, wants) {
+    bot.memory.beats = (bot.memory.beats || 0) + 1;
+    if (bot.memory.beats % 100 !== 0) return;
+
+    var short = [];
+    for (var i = 0; i < wants.length; i++) {
+        if (wants[i].have < wants[i].need) {
+            short.push(wants[i].id + " " + wants[i].have + "/" + wants[i].need);
+        }
+    }
+    bot.log("shadow-fortress: " + step.id +
+        (short.length ? " wants " + short.join(", ") : " is ready and will not turn in"));
+}
+
 // One quest: handed in when the client offers it, taken when it is not being
 // carried, and worked one unmet requirement at a time. True only once the
 // turn-in has landed, which is when the chain may move on.
@@ -122,6 +138,7 @@ function work(step) {
 
     var wants = bot.quest.wants(step.id);
     if (wants === null) return false;
+    report(step, wants);
     for (var i = 0; i < wants.length; i++) {
         var want = wants[i];
         if (want.have >= want.need) continue;
