@@ -18,6 +18,14 @@ var haveCape = bot.item("Cape of Awe");
 if (haveCape === null) return;
 if (haveCape > 0) return true;
 
+var fragment = bot.item("Cape Fragment");
+if (fragment === null) return;
+if (fragment >= 1) {
+    if (!bot.travel("museum")) return;
+    if (!bot.buyName(1129, "Cape Relic")) return;
+    return;
+}
+
 if (!member) {
     if (bot.level === null) return;
     if (bot.level < 55) {
@@ -64,14 +72,6 @@ if (shard <= 0) {
 
 if (bot.quest.ready(QUEST)) {
     bot.quest.turnIn(QUEST);
-    return;
-}
-
-var fragment = bot.item("Cape Fragment");
-if (fragment === null) return;
-if (fragment >= 1) {
-    if (!bot.travel("museum")) return;
-    if (!bot.buyName(1129, "Cape Relic")) return;
     return;
 }
 

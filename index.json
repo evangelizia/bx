@@ -97,7 +97,7 @@
       ],
       "version": "1.0",
       "size": 1993,
-      "sha256": "e860d1825d5e50606809ed870a9152dbd0f7d5429a7b73b46d3a4011177cb918",
+      "sha256": "d7b58347bc625faf7ca263208cf2f31389a6d15343666e3bde10a1ebe9bc7618",
       "path": "bots/cape-of-awe.js",
       "mode": "once",
       "timeout": 0
