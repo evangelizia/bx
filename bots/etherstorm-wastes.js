@@ -11,8 +11,8 @@
 // reference story methods.
 
 function hunt(map, monster, count) {
+    if (typeof bot.hunt === "function") return bot.hunt(map, monster, count);
     if (!bot.travel(map)) return false;
-
     var found = bot.roomMonster(monster);
     if (found === null) return false;
     if (found.cell && !bot.moveToCell(found.cell, found.pad)) return false;
