@@ -320,7 +320,20 @@ function katanaBlade() {
     // The SoulForge merge item 54104 is not a normal shop purchase: its
     // turn-in list consumes these materials. The reference buys the medals
     // before asking the merge shop to turn in the Shadow Katana Blade.
-    if (!buy(UNDERWORLD, DAGE_SHOP, MEDAL, MEDAL_NEED)) return false;
+    var medals = bot.item(MEDAL);
+    if (medals === null) return false;
+    if (medals < MEDAL_NEED) {
+        var gold = bot.gold;
+        if (gold === null) return false;
+        if (gold < MEDAL_GOLD) {
+            note("waiting for 1,000,000 gold to buy the next Platinum Paragon Medal");
+            return false;
+        }
+        if (!buy(UNDERWORLD, DAGE_SHOP, MEDAL, medals + 1)) return false;
+    }
+    // Never submit the blade merge until the full merge ingredient is in bag.
+    medals = bot.item(MEDAL);
+    if (medals === null || medals < MEDAL_NEED) return false;
     return buy(UNDERWORLD, SOULFORGE, KATANA_BLADE, 1);
 }
 
@@ -471,20 +484,6 @@ var legion = bot.quest.done(793);
 if (legion === null) return;
 if (!legion) {
     bot.fail("the Legion must be joined first (run the Join the Legion bot)");
-    return;
-}
-
-// The medal price is the one cost that cannot be farmed here, so it is asked
-// for before the long farms rather than after them.
-var medals = bot.item(MEDAL);
-if (medals === null) return;
-var gold = bot.gold;
-if (gold === null) return;
-var price = (MEDAL_NEED - medals) * MEDAL_GOLD;
-if (price > 0 && gold < price) {
-    bot.fail(
-        "Platinum Paragon Medal x" + MEDAL_NEED + " needs " + price + " gold (have " + gold + ")"
-    );
     return;
 }
 

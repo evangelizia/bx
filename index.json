@@ -675,8 +675,8 @@
         "quests"
       ],
       "version": "1.0",
-      "size": 16832,
-      "sha256": "5d897ef7c9eddeb01d1ea42fbfb7a62ce01a8e6945ee9270b64013a9b100641c",
+      "size": 16890,
+      "sha256": "02d9bd28ee72744bdca7d9fbbf1dc4987f8d92c4779476d5b34344594e74a2f0",
       "path": "bots/yami-no-ronin.js",
       "mode": "once",
       "timeout": 0
