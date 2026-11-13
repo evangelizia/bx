@@ -123,6 +123,46 @@
       "timeout": 0
     },
     {
+      "id": "chaos-01-escherion",
+      "name": "13 Lords of Chaos: Escherion",
+      "desc": "Completes the first Lord of Chaos storyline, from Mobius through Escherion.",
+      "author": "",
+      "tags": [
+        "chaos",
+        "lord of chaos",
+        "escherion",
+        "chiral valley",
+        "story",
+        "quest"
+      ],
+      "version": "1",
+      "size": 2665,
+      "sha256": "8c66386d8c3222ad24e95dc712d4657181dea83e5a6cea49c3220633394c3229",
+      "path": "bots/chaos-01-escherion.js",
+      "mode": "once",
+      "timeout": 90
+    },
+    {
+      "id": "chaos-02-vath",
+      "name": "13 Lords of Chaos: Vath",
+      "desc": "Completes the second Lord of Chaos storyline, from the Pines through Vath.",
+      "author": "",
+      "tags": [
+        "chaos",
+        "lord of chaos",
+        "vath",
+        "dwarfhold",
+        "story",
+        "quest"
+      ],
+      "version": "1",
+      "size": 4294,
+      "sha256": "83afdc3f5100e7833cd5ca0cb8443dd61f99fe82faf591a4b73c880eeefb2b2c",
+      "path": "bots/chaos-02-vath.js",
+      "mode": "once",
+      "timeout": 90
+    },
+    {
       "id": "chaos-7-tibicenas",
       "name": "13 Lords of Chaos: Tibicenas",
       "desc": "The seventh Lord of Chaos, the Sandsea up to Tibicenas.",
