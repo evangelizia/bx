@@ -19,11 +19,15 @@ var QUEST = member ? 6060 : 6059;
 var TOKEN = 41654;
 var CLASS = 41575;
 
-function hunt(name, count) {
+function hunt(name, drop, count) {
+    // These are normal drops, not temporary quest counters. Drain matching
+    // drops before another hunt, then explicitly pick up drops from this run.
+    if (!bot.pickDrop(drop)) return;
     var m = bot.roomMonster(name);
     if (m === null) return;
     if (m.cell && !bot.moveToCell(m.cell, m.pad || "Left")) return;
     if (!bot.kill(name, count)) return;
+    bot.pickDrop(drop);
 }
 
 var owned = bot.item(CLASS);
@@ -54,11 +58,11 @@ for (var i = 0; i < wants.length; i++) {
     var need = want.need - want.have;
     if (need <= 0) continue;
     if (want.id === 41652) {
-        hunt("Black Unicorn", need);
+        hunt("Black Unicorn", "Black Blood Vial", need);
         return;
     }
     if (want.id === 41653) {
-        hunt("Lycan Guard", need);
+        hunt("Lycan Guard", "Moon Stone", need);
         return;
     }
     bot.fail("Blood Moon quest wants unexpected item " + want.id);

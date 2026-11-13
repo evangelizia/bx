@@ -670,8 +670,8 @@
         "vampire lord"
       ],
       "version": "1.0",
-      "size": 1901,
-      "sha256": "332cf3b5e9f14daf6094998fae328da5fc65f62d3271be18701ec5e607bf90a8",
+      "size": 2157,
+      "sha256": "f07b3a25eaccbea761fe96cf0e7c21f601c3fec90cde10503babbd393acaebaf",
       "path": "bots/vampire-lord.js",
       "mode": "loop",
       "timeout": 0
