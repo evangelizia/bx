@@ -1007,6 +1007,26 @@
       "slots": ""
     },
     {
+      "id": "VampireLord",
+      "name": "Vampire Lord",
+      "desc": "Sonar Scream to amplify up to three targets, Ghoul Gouge for damage over time, Devour Blood for damage and sustain, Slash as the filler.",
+      "author": "beatrix",
+      "tags": [
+        "dps",
+        "farm",
+        "solo",
+        "aoe",
+        "sustain"
+      ],
+      "version": "1.0",
+      "size": 1332,
+      "sha256": "79e99547e70d1666fe6748c0d1a038d16047fd6dbd30212af51a9128789a90d9",
+      "path": "classes/VampireLord.js",
+      "class": "Vampire Lord",
+      "role": "AoE DPS",
+      "slots": ""
+    },
+    {
       "id": "Warrior",
       "name": "Warrior",
       "desc": "Uses On Guard for defense, Prepared Strike for guaranteed critical attacks, and cycles the Warrior strikes.",
