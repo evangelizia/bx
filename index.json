@@ -187,6 +187,27 @@
       "timeout": 0
     },
     {
+      "id": "etherstorm-wastes",
+      "name": "Etherstorm Wastes Story",
+      "desc": "Completes the Firestorm, Airstorm, Waterstorm, and Earthstorm story quests.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "etherstorm",
+        "firestorm",
+        "airstorm",
+        "waterstorm",
+        "earthstorm"
+      ],
+      "version": "1.0",
+      "size": 5358,
+      "sha256": "9095dc5f2ae1823fa05a9a7fdba1912103145652114b721c149b19bf87bcb65c",
+      "path": "bots/etherstorm-wastes.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "forge-absolution",
       "name": "Forge Cape: Absolution",
       "desc": "Unlocks Absolution: the Good reputation gate, the Slimed Sigils and the two rift shop items.",
