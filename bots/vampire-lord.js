@@ -13,6 +13,7 @@
 // this version follows quest wants and completes each turn-in as soon as ready.
 
 var MAP = "bloodmoon";
+var SHOP_MAP = "mogloween";
 var member = bot.member;
 if (member === null) return;
 var QUEST = member ? 6060 : 6059;
@@ -39,6 +40,8 @@ if (!bot.travel(MAP)) return;
 var tokens = bot.item(TOKEN);
 if (tokens === null) return;
 if (tokens >= 300) {
+    // The reference buys from shop 1477 on /mogloween, not /bloodmoon.
+    if (!bot.travel(SHOP_MAP)) return;
     if (!bot.buyName(1477, "Vampire Lord")) return;
     owned = bot.item(CLASS);
     if (owned !== null && owned > 0) return true;
