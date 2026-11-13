@@ -10,6 +10,15 @@
 // from refs/Scripts/QuestData.json; map items and monster routes follow the
 // reference story methods.
 
+function hunt(map, monster, count) {
+    if (!bot.travel(map)) return false;
+
+    var found = bot.roomMonster(monster);
+    if (found === null) return false;
+    if (found.cell && !bot.moveToCell(found.cell, found.pad)) return false;
+    return bot.kill(monster, count);
+}
+
 var CHAIN = [
     { id: 1532, actions: {
         10558: { map: "firestorm", monster: "Sulfur Imp" },
@@ -103,9 +112,10 @@ function work(step) {
             bot.fail("Etherstorm quest " + step.id + " has an unsupported requirement: " + want.id);
             return false;
         }
+        if (action.monster) return hunt(action.map, action.monster, short);
         if (!bot.travel(action.map)) return false;
         if (action.item) return bot.mapItem(action.item, short, want.id);
-        return bot.kill(action.monster, short);
+        return false;
     }
 
     return bot.quest.ready(step.id) && bot.quest.turnIn(step.id);

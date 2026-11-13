@@ -201,8 +201,8 @@
         "earthstorm"
       ],
       "version": "1.0",
-      "size": 5358,
-      "sha256": "9095dc5f2ae1823fa05a9a7fdba1912103145652114b721c149b19bf87bcb65c",
+      "size": 5682,
+      "sha256": "a03ebb68b32422cc3aad999a491092047826bde7702ee6ce7958349f81218cdb",
       "path": "bots/etherstorm-wastes.js",
       "mode": "once",
       "timeout": 0
