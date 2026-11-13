@@ -658,6 +658,25 @@
       "timeout": 0
     },
     {
+      "id": "vampire-lord",
+      "name": "Vampire Lord",
+      "desc": "Farms Blood Moon Tokens in /bloodmoon and buys the Vampire Lord class.",
+      "author": "beatrix",
+      "tags": [
+        "class",
+        "mogloween",
+        "seasonal",
+        "vampire",
+        "vampire lord"
+      ],
+      "version": "1.0",
+      "size": 1901,
+      "sha256": "332cf3b5e9f14daf6094998fae328da5fc65f62d3271be18701ec5e607bf90a8",
+      "path": "bots/vampire-lord.js",
+      "mode": "loop",
+      "timeout": 0
+    },
+    {
       "id": "yami-no-ronin",
       "name": "Yami no Ronin",
       "desc": "Farms the Yami no Ronin class the Legion way: SoulForge Hammer, Folded Steel, the Shadow Katana Blade merge, the Blademaster Sword Scroll and the Yokai Sword Scroll.",
