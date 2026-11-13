@@ -163,6 +163,46 @@
       "timeout": 90
     },
     {
+      "id": "chaos-04-kitsune",
+      "name": "13 Lords of Chaos: Kitsune",
+      "desc": "Completes the fourth Lord of Chaos storyline, from the Yokai Boat through Kitsune.",
+      "author": "",
+      "tags": [
+        "chaos",
+        "lord of chaos",
+        "kitsune",
+        "yokai",
+        "story",
+        "quest"
+      ],
+      "version": "1",
+      "size": 5291,
+      "sha256": "984c295a6e644918e2fea3763fdd5f80fd610a33495cc4119b98bc3f83fbf485",
+      "path": "bots/chaos-04-kitsune.js",
+      "mode": "once",
+      "timeout": 90
+    },
+    {
+      "id": "chaos-05-wolfwing",
+      "name": "13 Lords of Chaos: Wolfwing",
+      "desc": "Completes the fifth Lord of Chaos storyline, from Darkovia Grave through Wolfwing.",
+      "author": "",
+      "tags": [
+        "chaos",
+        "lord of chaos",
+        "wolfwing",
+        "darkovia",
+        "story",
+        "quest"
+      ],
+      "version": "1",
+      "size": 5193,
+      "sha256": "f9650932aee5afa3d6dd0438778d5140f89672299feae08fcac522f03ea2b326",
+      "path": "bots/chaos-05-wolfwing.js",
+      "mode": "once",
+      "timeout": 90
+    },
+    {
       "id": "chaos-7-tibicenas",
       "name": "13 Lords of Chaos: Tibicenas",
       "desc": "The seventh Lord of Chaos, the Sandsea up to Tibicenas.",
