@@ -95,9 +95,9 @@
         "reputation",
         "farm"
       ],
-      "version": "1.0",
-      "size": 1993,
-      "sha256": "d7b58347bc625faf7ca263208cf2f31389a6d15343666e3bde10a1ebe9bc7618",
+      "version": "1.1",
+      "size": 2008,
+      "sha256": "7d4c2adf138baf17136c5b56502f64d850660ff4ea0aa932aa8a9b5d0d8dffef",
       "path": "bots/cape-of-awe.js",
       "mode": "once",
       "timeout": 0
