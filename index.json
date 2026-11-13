@@ -62,6 +62,26 @@
       "timeout": 0
     },
     {
+      "id": "broken-woods-story",
+      "name": "Broken Woods Story",
+      "desc": "Completes the Queen of Monsters story segment from Time for a Dose through Smash the Hive (quests 5866-5873).",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "broken woods",
+        "brokenwoods",
+        "queen of monsters",
+        "qom"
+      ],
+      "version": "1.0",
+      "size": 3871,
+      "sha256": "20cb0e9b3a715372ea40585c0d8bfff5123c944d379adeda015dc56774909857",
+      "path": "bots/broken-woods-story.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "burning-blade-of-abezeth",
       "name": "Burning Blade Of Abezeth",
       "desc": "Runs the thirty Celestial Arena fights in order, then merges the Burning Blade Of Abezeth from Champion Sashes and Gold Vouchers.",
