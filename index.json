@@ -3,6 +3,45 @@
   "repo": "evangelizia/bx",
   "bots": [
     {
+      "id": "apprentice-of-awe",
+      "name": "Apprentice of Awe",
+      "desc": "Completes The Dawn of Lore and buys the Apprentice of Awe armor.",
+      "author": "beatrix",
+      "tags": [
+        "awe",
+        "armor",
+        "boost",
+        "museum",
+        "treasurehunter"
+      ],
+      "version": "1.0",
+      "size": 1937,
+      "sha256": "f3906d8830ce7736887de2ccb27f43c63250aa5f15278ebbb92554961b84e026",
+      "path": "bots/apprentice-of-awe.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
+      "id": "blade-of-awe-rep",
+      "name": "Blade of Awe Reputation",
+      "desc": "Repeats Find the Hilt! in Castle Undead to farm Blade of Awe reputation to rank 10.",
+      "author": "beatrix",
+      "tags": [
+        "blade",
+        "awe",
+        "reputation",
+        "rep",
+        "rank",
+        "farm"
+      ],
+      "version": "1.0",
+      "size": 1124,
+      "sha256": "74f06a17a2467c0040b79dd7d15bc50787e9991389fcc72b92bc446f043d6c2c",
+      "path": "bots/blade-of-awe-rep.js",
+      "mode": "loop",
+      "timeout": 0
+    },
+    {
       "id": "blade-of-awe",
       "name": "Blade of Awe",
       "desc": "Runs the five Awe quests in order, farms Blade of Awe reputation to rank 6, then buys the Blade of Awe.",
@@ -40,6 +79,26 @@
       "size": 6005,
       "sha256": "a51dcea16ad13bac73e7723f494db76a8c19913a7c767d5e66a7d7fe18a9f3f6",
       "path": "bots/burning-blade-of-abezeth.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
+      "id": "cape-of-awe",
+      "name": "Cape of Awe",
+      "desc": "Farms a Cape Relic from Binky and buys the Cape of Awe.",
+      "author": "beatrix",
+      "tags": [
+        "cape",
+        "awe",
+        "boost",
+        "experience",
+        "reputation",
+        "farm"
+      ],
+      "version": "1.0",
+      "size": 1993,
+      "sha256": "e860d1825d5e50606809ed870a9152dbd0f7d5429a7b73b46d3a4011177cb918",
+      "path": "bots/cape-of-awe.js",
       "mode": "once",
       "timeout": 0
     },
