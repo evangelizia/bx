@@ -317,6 +317,10 @@ function katanaBlade() {
     if (!hammer()) return false;
     if (!foldedSteel()) return false;
     if (!yami()) return false;
+    // The SoulForge merge item 54104 is not a normal shop purchase: its
+    // turn-in list consumes these materials. The reference buys the medals
+    // before asking the merge shop to turn in the Shadow Katana Blade.
+    if (!buy(UNDERWORLD, DAGE_SHOP, MEDAL, MEDAL_NEED)) return false;
     return buy(UNDERWORLD, SOULFORGE, KATANA_BLADE, 1);
 }
 
