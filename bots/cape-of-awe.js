@@ -2,7 +2,7 @@
 /// desc: Farms a Cape Relic from Binky and buys the Cape of Awe.
 /// once: true
 /// timeout: 0
-/// version: 1.1
+/// version: 1.2
 /// author: beatrix
 /// tags: cape, awe, boost, experience, reputation, farm
 
@@ -19,8 +19,10 @@ var haveCape = bot.item("Cape of Awe");
 if (haveCape === null) return;
 if (haveCape > 0) return true;
 
-var fragment = bot.item(FRAGMENT);
-if (fragment === null) return;
+var fragmentById = bot.item(FRAGMENT);
+var fragmentByName = bot.item("Cape Fragment");
+if (fragmentById === null && fragmentByName === null) return;
+var fragment = Math.max(fragmentById || 0, fragmentByName || 0);
 if (fragment >= 1) {
     if (!bot.travel("museum")) return;
     if (!bot.buyName(1129, "Cape Relic")) return;
