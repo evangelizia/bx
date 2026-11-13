@@ -15,8 +15,8 @@
         "treasurehunter"
       ],
       "version": "1.0",
-      "size": 2683,
-      "sha256": "862f00945bf1daa202be96983e6d93c9424aa28fc3511e184304b3abcb7bc58b",
+      "size": 2757,
+      "sha256": "4c690b37b33ef9ea9240c86e65b9a7e3a7382951515f5e1449c18680729a1dca",
       "path": "bots/apprentice-of-awe.js",
       "mode": "once",
       "timeout": 0

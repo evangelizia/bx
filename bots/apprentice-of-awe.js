@@ -86,11 +86,11 @@ for (var i = 0; i < wants.length; i++) {
         var owned = bot.item(want.id);
         if (owned === null) return;
         if (owned > 0) continue;
-        if (!bot.kill(target.monster, 1)) return;
+        if (!bot.hunt(target.map, target.monster, 1, target.cell, target.pad)) return;
         if (!bot.pickDrop(target.drop)) return;
         return;
     }
 
-    bot.kill(target.monster, want.need - want.have);
+    bot.hunt(target.map, target.monster, want.need - want.have, target.cell, target.pad);
     return;
 }
