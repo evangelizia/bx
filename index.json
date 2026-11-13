@@ -1010,7 +1010,7 @@
     {
       "id": "YamiNoRonin",
       "name": "Yami no Ronin",
-      "desc": "Yami no Maku DoT, Tachi for Ichi Ni San, Jigen Kogeki timed to the DoT, Kettou to heal and build Flash.",
+      "desc": "Builds Flash and Tachi buffs, then times Jigen Kogeki near Yami's expiry to reset Revealed and restore dodge.",
       "author": "beatrix",
       "tags": [
         "dps",
@@ -1020,8 +1020,8 @@
         "endgame"
       ],
       "version": "1.0",
-      "size": 2454,
-      "sha256": "d19020785c92e8368bb44da743741237de3b16d7017cd4f1fddf0b6c1b85a52a",
+      "size": 2334,
+      "sha256": "f0a83a97b27106b88231ce25f584e91b4f53c118c8954405463917c30c5ab693",
       "path": "classes/YamiNoRonin.js",
       "class": "Yami no Ronin",
       "role": "Dodge Melee",
