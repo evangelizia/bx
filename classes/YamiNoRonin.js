@@ -3,7 +3,7 @@
 /// role: Dodge Melee
 /// version: 1.0
 /// author: beatrix
-/// desc: Builds Flash and Tachi buffs, then times Jigen Kogeki near Yami's expiry to reset Revealed and restore dodge.
+/// desc: Builds Flash, keeps Yami active, and uses Jigen Kogeki near expiry for damage while resetting Revealed and restoring dodge.
 /// tags: dps, dodge, melee, solo, endgame
 const me = s.self;
 const target = s.target;
@@ -21,30 +21,26 @@ const yami = target.aura("Yami") || target.aura("Yami no Maku");
 
 const flashStacks = flash ? flash.stacks : 0;
 
-// Jigen Kogeki (6 s) scales up as Yami's 10 s DoT expires. It consumes Flash,
-// Revealed, Ichi, Ni and San, resetting the dodge penalty as it cashes out the
-// damage build. Patch notes cap Flash/Revealed at 10 stacks (8% damage, hit and
-// crit per Flash stack); five stacks is a mixed DPS/survival trigger rather
-// than sitting at the dodge-breaking cap.
-if (yami && yami.remainingMs <= 2500 && ichi && ni && san && flashStacks >= 5
+// Jigen scales up as Yami's DoT expires and consumes the accumulated class
+// buffs. Don't require all three short-lived Tachi effects: that can make the
+// policy miss the Yami window. Three Flash stacks give a useful damage boost
+// without letting Revealed's dodge penalty grow unchecked.
+if (yami && yami.remainingMs <= 2000 && flashStacks >= 3
     && s.usable("Jigen Kogeki")) {
     return "Jigen Kogeki";
 }
 
-// Do not refresh Yami at four seconds: that resets its timer and destroys the
-// Jigen damage window. Reapply only when absent or nearly expired.
+// Refresh Yami only after its damage window has been used or has expired.
 if ((!yami || yami.remainingMs < 700) && s.usable("Yami no Maku")) {
     return "Yami no Maku";
 }
 
-// Tachi's three always-hit strikes grant Ichi (10 s), Ni (8 s), and San (6 s).
-// Keep the full setup for Jigen; the aura timers no longer desync as readily
-// after the 2026 class balance update.
+// Tachi's three strikes grant the short-lived Ichi, Ni, and San damage buffs.
+// Use it to set up Jigen, but don't make those auras a hard requirement.
 if ((!ichi || !ni || !san) && s.usable("Tachi")) return "Tachi";
 
-// Kettou (3 s) deals strong damage, heals by damage dealt, and adds Flash plus
-// Revealed. Use it for sustain and damage, but avoid unnecessary casts once
-// Flash has reached the mixed-playstyle trigger while Jigen is unavailable.
+// Kettou deals strong damage, heals, and builds Flash/Revealed. Spend it when
+// sustain is needed; otherwise cap the dodge-costly Flash buildup at five.
 if (me.hpPct < 55 && s.usable("Kettou")) return "Kettou";
 
 // Batto builds Flash/Revealed. Hisome gives +80% Dodge, Gouyuu +35% damage,

@@ -1129,7 +1129,7 @@
     {
       "id": "YamiNoRonin",
       "name": "Yami no Ronin",
-      "desc": "Builds Flash and Tachi buffs, then times Jigen Kogeki near Yami's expiry to reset Revealed and restore dodge.",
+      "desc": "Builds Flash, keeps Yami active, and uses Jigen Kogeki near expiry for damage while resetting Revealed and restoring dodge.",
       "author": "beatrix",
       "tags": [
         "dps",
@@ -1139,8 +1139,8 @@
         "endgame"
       ],
       "version": "1.0",
-      "size": 2334,
-      "sha256": "f0a83a97b27106b88231ce25f584e91b4f53c118c8954405463917c30c5ab693",
+      "size": 2064,
+      "sha256": "87ba4ca00d1eb69d26a812e91fc69fdba4f37dbe69fe5bd5abe3a7401d81c6f4",
       "path": "classes/YamiNoRonin.js",
       "class": "Yami no Ronin",
       "role": "Dodge Melee",
