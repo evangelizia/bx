@@ -12,23 +12,11 @@ var STEPS = [
     { id: 496, monster: "Rattlebones", map: "darkoviagrave" },
     { id: 497, monster: "Albino Bat", map: "darkoviagrave" },
     { id: 498, monster: "Blightfang", map: "darkoviagrave" },
-    { id: 308, monster: "Wolf", map: "greenguardeast" },
-    { id: 309, monster: "Slime", map: "greenguardwest" },
-    { id: 310, monster: "Frogzard", map: "greenguardwest" },
-    { id: 311, monster: "Spider", map: "greenguardeast" },
-    { id: 515, map: "greenguardeast", pre: [514], parts: [
-        { monster: "Spider", map: "greenguardeast" },
-        { monster: "Wolf", map: "greenguardeast" },
-        { monster: "Slime", map: "greenguardwest" },
-        { monster: "Frogzard", map: "greenguardwest" },
-        { monster: "Big Bad Boar", map: "greenguardwest", cell: "West12", pad: "Up" }
-    ] },
-    { id: 514, auto: true },
-    { id: 516, monster: "Dire Wolf", map: "darkoviaforest" },
+    { id: 516, prepareDireSituation: true },
     { id: 517, map: "darkoviaforest", parts: [
-        { monster: "Blood Maggot", map: "darkoviaforest" },
-        { monster: "Blood Maggot", map: "darkoviaforest" },
-        { monster: "Blood Maggot", map: "darkoviaforest" }
+        { item: 2891, monster: "Blood Maggot", map: "darkoviaforest" },
+        { item: 2892, monster: "Blood Maggot", map: "darkoviaforest" },
+        { item: 2893, monster: "Blood Maggot", map: "darkoviaforest" }
     ] },
     { id: 518, monster: "Lich of the Stone", map: "darkoviaforest" },
     { id: 519, monster: "Blood Maggot", map: "safiria" },
@@ -37,21 +25,29 @@ var STEPS = [
     { id: 522, monster: "Twisted Paw", map: "safiria" },
     { id: 534, monster: "Dire Wolf", map: "lycan" },
     { id: 535, map: "lycan", parts: [
-        { monster: "Lycan Knight", map: "lycan" },
-        { monster: "Lycan", map: "lycan" }
+        { item: 3748, monster: "Lycan Knight", map: "lycan" },
+        { item: 3747, monster: "Lycan", map: "lycan" }
     ] },
     { id: 536, monster: "Chaos Vampire Knight", map: "lycan" },
     { id: 537, monster: "Sanguine", map: "lycan" },
     { id: 552, auto: true },
-    { id: 564, map: "lycanwar", parts: [
-        { monster: "Edvard", map: "lycanwar", cell: "Boss", pad: "Left" },
-        { mapItem: 107, map: "chaoscave" }
-    ] },
+    { id: 564, searchAndReport: true },
     { id: 565, monster: "Werepyre", map: "chaoscave" },
     { id: 566, monster: "Werepyre", map: "chaoscave", cell: "r3", pad: "Left" },
     { id: 567, monster: "DracoWerePyre", map: "chaoscave", cell: "r5", pad: "Left" },
     { id: 597, auto: true, goodAlignment: true }
 ];
+
+var RED_AXE = {
+    id: 515,
+    parts: [
+        { item: 2885, monster: "Spider", map: "greenguardeast" },
+        { item: 2886, monster: "Wolf", map: "greenguardeast" },
+        { item: 2887, monster: "Slime", map: "greenguardwest" },
+        { item: 2888, monster: "Frogzard", map: "greenguardwest" },
+        { item: 2889, monster: "Big Bad Boar", map: "greenguardwest", cell: "West12", pad: "Up" }
+    ]
+};
 
 function workMixed(step) {
     if (bot.quest.ready(step.id)) return bot.quest.turnIn(step.id);
@@ -64,9 +60,9 @@ function workMixed(step) {
         var short = want.need - want.have;
         if (short <= 0) continue;
 
-        var source = step.parts[i];
-        if (source === undefined) {
-            bot.fail("quest " + step.id + " has an unmapped requirement at position " + i);
+        var source = sourceFor(step, want.id);
+        if (source == null) {
+            bot.fail("quest " + step.id + " has no source for requirement " + want.id);
             return false;
         }
         if (!bot.travel(source.map)) return false;
@@ -77,6 +73,60 @@ function workMixed(step) {
         return bot.hunt(source.map, source.monster, short, source.cell, source.pad);
     }
     return bot.quest.ready(step.id) ? bot.quest.turnIn(step.id) : false;
+}
+
+function sourceFor(step, item) {
+    for (var i = 0; i < step.parts.length; i++) {
+        if (step.parts[i].item === item) return step.parts[i];
+    }
+    return null;
+}
+
+function workDireSituation() {
+    var lilRed = bot.quest.done(514);
+    if (lilRed == null) return false;
+
+    if (!lilRed) {
+        if (!bot.quest.active(514) && !bot.quest.accept(514)) return false;
+        if (bot.quest.ready(514)) return bot.quest.turnIn(514);
+        if (bot.quest.ready(515)) {
+            bot.memory.awaitingRedAxe = true;
+            return bot.quest.turnIn(515);
+        }
+        if (bot.memory.awaitingRedAxe) {
+            bot.pickDrop("Red's Big Wolf Slaying Axe");
+            return false;
+        }
+        if (!bot.quest.active(515) && !bot.quest.accept(515)) return false;
+        return workMixed(RED_AXE);
+    }
+
+    bot.memory.awaitingRedAxe = false;
+    return bot.quest.farm(516, "Dire Wolf", "darkoviaforest");
+}
+
+function workSearchAndReport() {
+    if (bot.quest.ready(564)) return bot.quest.turnIn(564);
+    if (!bot.quest.active(564) && !bot.quest.accept(564)) return false;
+
+    if (!bot.memory.wolfwingEdvardDefeated) {
+        if (!bot.hunt("lycanwar", "Edvard", 1, "Boss", "Left")) return false;
+        bot.memory.wolfwingEdvardDefeated = true;
+        return false;
+    }
+
+    var wants = bot.quest.wants(564);
+    if (wants == null) return false;
+    for (var i = 0; i < wants.length; i++) {
+        var want = wants[i];
+        var short = want.need - want.have;
+        if (short > 0) {
+            if (!bot.travel("chaoscave")) return false;
+            bot.mapItem(107, short, want.id);
+            return false;
+        }
+    }
+    return bot.quest.ready(564) ? bot.quest.turnIn(564) : false;
 }
 
 function workAlignmentQuest() {
@@ -102,11 +152,12 @@ for (var i = 0; i < STEPS.length; i++) {
     if (done == null) return;
     if (done) continue;
 
-    if (step.pre !== undefined) {
-        for (var p = 0; p < step.pre.length; p++) {
-            if (!bot.quest.active(step.pre[p]) && !bot.quest.accept(step.pre[p])) return;
-        }
-        workMixed(step);
+    if (step.prepareDireSituation) {
+        workDireSituation();
+        return;
+    }
+    if (step.searchAndReport) {
+        workSearchAndReport();
         return;
     }
     if (step.goodAlignment) {
@@ -130,5 +181,5 @@ for (var i = 0; i < STEPS.length; i++) {
     return;
 }
 
-bot.log("chaos-05-wolfwing: completed quests 308-597");
+bot.log("chaos-05-wolfwing: completed quests 494-597");
 return true;

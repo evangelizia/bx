@@ -156,8 +156,8 @@
         "quest"
       ],
       "version": "1",
-      "size": 4915,
-      "sha256": "cd6b31c496ded48bcb6b13060c644719963bc2621639d5869fa129c02921e7af",
+      "size": 5256,
+      "sha256": "e145141237a20ffa7c14c8b6b91aedd00a67cd6241e3e9b5dfb7d462c2f8afa6",
       "path": "bots/chaos-02-vath.js",
       "mode": "once",
       "timeout": 90
@@ -176,8 +176,8 @@
         "quest"
       ],
       "version": "1",
-      "size": 5291,
-      "sha256": "984c295a6e644918e2fea3763fdd5f80fd610a33495cc4119b98bc3f83fbf485",
+      "size": 6569,
+      "sha256": "fcd6ddc34051a50dcbb02086f0afcb0c0dadb09e24abfca631805c6926b773ae",
       "path": "bots/chaos-04-kitsune.js",
       "mode": "once",
       "timeout": 90
@@ -196,8 +196,8 @@
         "quest"
       ],
       "version": "1",
-      "size": 5193,
-      "sha256": "f9650932aee5afa3d6dd0438778d5140f89672299feae08fcac522f03ea2b326",
+      "size": 6556,
+      "sha256": "c595dfef798701332b05a105f0cd408da49b5909ed05f3274e63baca0599f3a7",
       "path": "bots/chaos-05-wolfwing.js",
       "mode": "once",
       "timeout": 90

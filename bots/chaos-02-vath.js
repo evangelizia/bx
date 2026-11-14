@@ -36,10 +36,14 @@ var STEPS = [
     { id: 350, monster: "Terradactyl", map: "uppercity" },
     { id: 351, monster: "Rhino Beetle", map: "uppercity" },
     { id: 352, monster: "Cave Lizard", map: "uppercity" },
-    { id: 353, map: "dwarfprison", monsters: ["Balboa", "Chaos Drow", "Albino Bat"] },
+    { id: 353, map: "dwarfprison", parts: [
+        { item: 1695, monster: "Balboa" },
+        { item: 1697, monster: "Chaos Drow" },
+        { item: 1696, monster: "Albino Bat" }
+    ] },
     { id: 354, useThermite: true },
     { id: 355, monster: "Warden Elfis", map: "dwarfprison" },
-    { id: 357, explosives: true },
+    { id: 357, bigBadaBoom: true },
     { id: 362, mapItem: 62, map: "roc" },
     { id: 363, mapItem: 63, map: "stalagbite" }
 ];
@@ -53,14 +57,21 @@ function workMixed(step) {
     for (var i = 0; i < wants.length; i++) {
         var short = wants[i].need - wants[i].have;
         if (short <= 0) continue;
-        var monster = step.monsters[i];
-        if (monster === undefined) {
-            bot.fail("quest " + step.id + " has an unmapped requirement at position " + i);
+        var source = sourceFor(step, wants[i].id);
+        if (source == null) {
+            bot.fail("quest " + step.id + " has no source for requirement " + wants[i].id);
             return false;
         }
-        return bot.hunt(step.map, monster, short);
+        return bot.hunt(step.map, source.monster, short);
     }
     return bot.quest.ready(step.id) ? bot.quest.turnIn(step.id) : false;
+}
+
+function sourceFor(step, item) {
+    for (var i = 0; i < step.parts.length; i++) {
+        if (step.parts[i].item === item) return step.parts[i];
+    }
+    return null;
 }
 
 function useThermite() {
@@ -71,28 +82,29 @@ function useThermite() {
     return bot.quest.ready(354) ? bot.quest.turnIn(354) : false;
 }
 
-function workExplosives() {
-    var teeEnTee = bot.item(1703);
+function workBigBadaBoom() {
+    if (bot.quest.ready(357)) return bot.quest.turnIn(357);
+
+    var teeEnTee = bot.item("Tee-En-Tee");
     if (teeEnTee == null) return false;
 
     if (teeEnTee < 1) {
-        var explosiveQuest = { id: 356, map: "dwarfprison", monsters: [
-            "Albino Bat", "Chaos Drow", "Balboa"
+        var explosiveQuest = { id: 356, map: "dwarfprison", parts: [
+            { item: 1700, monster: "Albino Bat" },
+            { item: 1701, monster: "Chaos Drow" },
+            { item: 1702, monster: "Balboa" }
         ] };
         if (bot.quest.ready(356)) {
-            bot.memory.explosivesTurnedIn = true;
-            bot.quest.turnIn(356);
-            return false;
+            bot.memory.awaitingTeeEnTee = true;
+            return bot.quest.turnIn(356);
         }
-        if (bot.memory.explosivesTurnedIn) return false;
-        workMixed(explosiveQuest);
-        return false;
+        if (bot.memory.awaitingTeeEnTee) return false;
+        return workMixed(explosiveQuest);
     }
 
-    bot.memory.explosivesTurnedIn = false;
-    if (bot.quest.ready(357)) return bot.quest.turnIn(357);
-    if (!bot.quest.active(357) && !bot.quest.accept(357)) return false;
+    bot.memory.awaitingTeeEnTee = false;
     if (!bot.travel("dwarfprison")) return false;
+    if (!bot.quest.active(357)) return bot.quest.accept(357);
     return bot.quest.ready(357) ? bot.quest.turnIn(357) : false;
 }
 
@@ -111,11 +123,11 @@ for (var i = 0; i < STEPS.length; i++) {
         useThermite();
         return;
     }
-    if (step.explosives) {
-        workExplosives();
+    if (step.bigBadaBoom) {
+        workBigBadaBoom();
         return;
     }
-    if (step.monsters !== undefined) {
+    if (step.parts !== undefined) {
         workMixed(step);
         return;
     }
