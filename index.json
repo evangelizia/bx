@@ -843,6 +843,27 @@
       "timeout": 0
     },
     {
+      "id": "tower-of-doom",
+      "name": "Tower of Doom Questline",
+      "desc": "Climbs the Tower of Doom for Zoshi, defeating the ten Dread bosses from Dread Klunk to Slugbutter (quests 3475-3484).",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "tower of doom",
+        "towerofdoom",
+        "zoshi",
+        "dread",
+        "bosses"
+      ],
+      "version": "1.0",
+      "size": 3313,
+      "sha256": "4a55dd03be14e1d37967ae798d901b8b32f57583387a109e5014237f0eeeb33c",
+      "path": "bots/tower-of-doom.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "tutorial",
       "name": "Tutorial Achievements",
       "desc": "Awards the ten tutorial achievements from /oaklore, matching the reference Tutorial Story bot.",
