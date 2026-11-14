@@ -221,6 +221,29 @@
       "timeout": 90
     },
     {
+      "id": "charity-feast",
+      "name": "CharityFeast Questline",
+      "desc": "Completes the Thanksgiving CharityFeast war event for Hans, quests 10938 to 10947, from Pumpkin Pop through King Mellori.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "charityfeast",
+        "thanksgiving",
+        "event",
+        "war",
+        "hans",
+        "serenity",
+        "unseelie"
+      ],
+      "version": "1.0",
+      "size": 4718,
+      "sha256": "8e4986d992715fc0350c6ce0cfd5a92f7df74da2aeadb05df5d54b3dbff4d9b0",
+      "path": "bots/charity-feast.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "dark-ally",
       "name": "Dark Ally Story",
       "desc": "Completes the /darkally chapter of Shadows of War, quests 7419 to 7428, ending with the Underfiend.",
