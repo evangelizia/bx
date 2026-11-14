@@ -39,8 +39,7 @@ var STEPS = [
     { id: 353, map: "dwarfprison", monsters: ["Balboa", "Chaos Drow", "Albino Bat"] },
     { id: 354, useThermite: true },
     { id: 355, monster: "Warden Elfis", map: "dwarfprison" },
-    { id: 356, map: "dwarfprison", monsters: ["Albino Bat", "Chaos Drow", "Balboa"] },
-    { id: 357, auto: true },
+    { id: 357, explosives: true },
     { id: 362, mapItem: 62, map: "roc" },
     { id: 363, mapItem: 63, map: "stalagbite" }
 ];
@@ -59,11 +58,7 @@ function workMixed(step) {
             bot.fail("quest " + step.id + " has an unmapped requirement at position " + i);
             return false;
         }
-        if (!bot.travel(step.map)) return false;
-        var found = bot.roomMonster(monster);
-        if (found == null) return false;
-        if (found.cell && !bot.moveToCell(found.cell, found.pad)) return false;
-        return bot.kill(monster, short);
+        return bot.hunt(step.map, monster, short);
     }
     return bot.quest.ready(step.id) ? bot.quest.turnIn(step.id) : false;
 }
@@ -74,6 +69,31 @@ function useThermite() {
     if (!bot.travel("vath")) return false;
     if (!bot.moveToCell("CutCap", "Left")) return false;
     return bot.quest.ready(354) ? bot.quest.turnIn(354) : false;
+}
+
+function workExplosives() {
+    var teeEnTee = bot.item(1703);
+    if (teeEnTee == null) return false;
+
+    if (teeEnTee < 1) {
+        var explosiveQuest = { id: 356, map: "dwarfprison", monsters: [
+            "Albino Bat", "Chaos Drow", "Balboa"
+        ] };
+        if (bot.quest.ready(356)) {
+            bot.memory.explosivesTurnedIn = true;
+            bot.quest.turnIn(356);
+            return false;
+        }
+        if (bot.memory.explosivesTurnedIn) return false;
+        workMixed(explosiveQuest);
+        return false;
+    }
+
+    bot.memory.explosivesTurnedIn = false;
+    if (bot.quest.ready(357)) return bot.quest.turnIn(357);
+    if (!bot.quest.active(357) && !bot.quest.accept(357)) return false;
+    if (!bot.travel("dwarfprison")) return false;
+    return bot.quest.ready(357) ? bot.quest.turnIn(357) : false;
 }
 
 for (var i = 0; i < STEPS.length; i++) {
@@ -89,6 +109,10 @@ for (var i = 0; i < STEPS.length; i++) {
     }
     if (step.useThermite) {
         useThermite();
+        return;
+    }
+    if (step.explosives) {
+        workExplosives();
         return;
     }
     if (step.monsters !== undefined) {
