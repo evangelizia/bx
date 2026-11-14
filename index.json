@@ -310,6 +310,28 @@
       "timeout": 0
     },
     {
+      "id": "elegy-of-madness",
+      "name": "Elegy of Madness Story",
+      "desc": "Completes the whole Astravia saga: Darkon's Garden and all nine Elegy of Madness maps, quests 7485-8733, from Picking Flowers through The World.",
+      "author": "beatrix",
+      "tags": [
+        "story",
+        "quest",
+        "astravia",
+        "eridani",
+        "darkon",
+        "elegy of madness",
+        "the world",
+        "saga"
+      ],
+      "version": "1.0",
+      "size": 18419,
+      "sha256": "75e46666ffc6fc5459548d254a2694957d34fc46e71cb682602fe4d0f786ae2d",
+      "path": "bots/elegy-of-madness.js",
+      "mode": "once",
+      "timeout": 0
+    },
+    {
       "id": "etherstorm-wastes",
       "name": "Etherstorm Wastes Story",
       "desc": "Completes the Firestorm, Airstorm, Waterstorm, and Earthstorm story quests.",
